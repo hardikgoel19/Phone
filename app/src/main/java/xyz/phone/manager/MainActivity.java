@@ -18,6 +18,7 @@ import xyz.phone.manager.utils.Title;
 public class MainActivity extends AppCompatActivity
         implements NavigationBarView.OnItemSelectedListener {
 
+    //CONSTANTS
     private static final int DEFAULT_FRAGMENT = R.id.callLogs;
 
     private BottomNavigationView bottomNavigationView;
