@@ -13,7 +13,7 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import xyz.phone.manager.fragments.CallLogsFragment;
 import xyz.phone.manager.fragments.MessagesFragment;
-import xyz.phone.manager.utils.Title;
+import xyz.phone.manager.constants.Title;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationBarView.OnItemSelectedListener {

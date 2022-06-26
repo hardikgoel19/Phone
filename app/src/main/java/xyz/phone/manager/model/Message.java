@@ -2,7 +2,9 @@ package xyz.phone.manager.model;
 
 import androidx.annotation.NonNull;
 
-public class Message {
+import xyz.phone.manager.utils.Converter;
+
+public class Message implements Comparable {
 
     private String id;
     private String messageDate;
@@ -100,5 +102,17 @@ public class Message {
                 ", read='" + read + '\'' +
                 ", phoneAccountId='" + phoneAccountId + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object object) {
+        if (object instanceof Message) {
+            Message other = (Message) object;
+            return Integer.compare(
+                    Converter.toInteger(this.getMessageDate()),
+                    Converter.toInteger(other.getMessageDate())
+            );
+        }
+        return 0;
     }
 }

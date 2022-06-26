@@ -1,0 +1,20 @@
+package xyz.phone.manager.utils;
+
+import java.util.function.Function;
+
+import xyz.phone.manager.model.Message;
+
+public class Comparator {
+
+    public static java.util.Comparator<Message> byNumber(Function<Message, String> function) {
+        return (obj1, obj2) -> {
+            String value1 = function.apply(obj1);
+            String value2 = function.apply(obj2);
+            return Long.compare(
+                    Converter.toLong(value1),
+                    Converter.toLong(value2)
+            );
+        };
+    }
+
+}
