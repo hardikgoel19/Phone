@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/callLogs"
+        android:icon="@drawable/bottom_call_icon"
+        android:title="@string/call_logs" />
+
+
+    <item
+        android:id="@+id/messages"
+        android:icon="@drawable/bottom_message_icon"
+        android:title="@string/messages" />
+
+</menu>
