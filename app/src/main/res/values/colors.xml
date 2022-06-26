@@ -11,4 +11,7 @@
 
     <color name="darkGray">#808080</color>
     <color name="lightGray">#F9F9F9</color>
+    <color name="purple">#881cb3</color>
+    <color name="darkBlue">#3F51B5</color>
+    <color name="red">#FF0000</color>
 </resources>

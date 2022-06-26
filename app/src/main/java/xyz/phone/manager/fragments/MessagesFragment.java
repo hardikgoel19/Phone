@@ -68,7 +68,7 @@ public class MessagesFragment extends BaseFragment {
         List<List<Message>> message = groupList.groupBy(
                 messageList,
                 Message::getAddress,
-                Comparator.byNumber(Message::getMessageDate)
+                Comparator.byNumberDesc(Message::getMessageDate)
         );
 
         if (adapter == null)

@@ -1,5 +1,6 @@
 package xyz.phone.manager.viewholder;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -7,8 +8,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import xyz.phone.manager.ConversationActivity;
 import xyz.phone.manager.R;
 import xyz.phone.manager.model.Message;
 import xyz.phone.manager.utils.Converter;
@@ -81,5 +84,17 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
             lastMessageText = message.getContent();
 
         this.lastMessage.setText(lastMessageText);
+    }
+
+    public void handleOnClick(List<Message> groupedMessages) {
+        if (this.mainLayout == null || this.mainLayout.getContext() == null) return;
+
+        ArrayList<Message> list = new ArrayList<>(groupedMessages);
+
+        mainLayout.setOnClickListener(view -> {
+            Intent intent = new Intent(mainLayout.getContext(), ConversationActivity.class);
+            intent.putExtra(ConversationActivity.MESSAGES, list);
+            mainLayout.getContext().startActivity(intent);
+        });
     }
 }

@@ -2,9 +2,9 @@ package xyz.phone.manager.model;
 
 import androidx.annotation.NonNull;
 
-import xyz.phone.manager.utils.Converter;
+import java.io.Serializable;
 
-public class Message implements Comparable {
+public class Message implements Serializable {
 
     private String id;
     private String messageDate;
@@ -86,33 +86,5 @@ public class Message implements Comparable {
 
     public void setPhoneAccountId(String phoneAccountId) {
         this.phoneAccountId = phoneAccountId;
-    }
-
-    @NonNull
-    @Override
-    public String toString() {
-        return "Message{" +
-                "id='" + id + '\'' +
-                ", messageDate='" + messageDate + '\'' +
-                ", address='" + address + '\'' +
-                ", content='" + content + '\'' +
-                ", type='" + type + '\'' +
-                ", subject='" + subject + '\'' +
-                ", status='" + status + '\'' +
-                ", read='" + read + '\'' +
-                ", phoneAccountId='" + phoneAccountId + '\'' +
-                '}';
-    }
-
-    @Override
-    public int compareTo(Object object) {
-        if (object instanceof Message) {
-            Message other = (Message) object;
-            return Integer.compare(
-                    Converter.toInteger(this.getMessageDate()),
-                    Converter.toInteger(other.getMessageDate())
-            );
-        }
-        return 0;
     }
 }

@@ -2,6 +2,5 @@
     <string name="app_name">Phone</string>
     <string name="call_logs">Call Logs</string>
     <string name="messages">Messages</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae ligula id dui lacinia laoreet. Integer leo augue, semper nec scelerisque eu, blandit ut mauris. Proin pellentesque vehicula dui eget sagittis. Pellentesque auctor nisl velit, quis elementum justo ultrices a. Donec at pharetra dolor. Nunc viverra hendrerit mauris, eu iaculis risus finibus in. Vestibulum tristique accumsan quam vitae sagittis. Pellentesque porta eros et elementum convallis.</string>
 </resources>

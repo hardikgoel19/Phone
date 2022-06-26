@@ -1,6 +1,8 @@
 package xyz.phone.manager.model;
 
-public class Call {
+import java.io.Serializable;
+
+public class Call implements Serializable {
 
     private String id;
     private String name;

@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Programmming/AndroidProjects/Phone/Phone/app/src/main/res/drawable/background_conversation_left.xml" value="0.1055" />
+        <entry key="..\:/Programmming/AndroidProjects/Phone/Phone/app/src/main/res/drawable/background_conversation_right.xml" value="0.1055" />
+        <entry key="..\:/Programmming/AndroidProjects/Phone/Phone/app/src/main/res/drawable/bg_receiver.xml" value="0.1055" />
         <entry key="..\:/Programmming/AndroidProjects/Phone/Phone/app/src/main/res/layout/activity_conversation.xml" value="0.221875" />
         <entry key="..\:/Programmming/AndroidProjects/Phone/Phone/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Programmming/AndroidProjects/Phone/Phone/app/src/main/res/layout/item_conversation_left.xml" value="0.221875" />
+        <entry key="..\:/Programmming/AndroidProjects/Phone/Phone/app/src/main/res/layout/item_conversation_right.xml" value="0.221875" />
         <entry key="..\:/Programmming/AndroidProjects/Phone/app/src/main/res/drawable/call_made.xml" value="0.1" />
         <entry key="..\:/Programmming/AndroidProjects/Phone/app/src/main/res/drawable/call_missed.xml" value="0.1" />
         <entry key="..\:/Programmming/AndroidProjects/Phone/app/src/main/res/drawable/call_received.xml" value="0.1" />

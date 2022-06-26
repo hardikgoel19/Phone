@@ -26,20 +26,20 @@
 
         <TextView
             android:id="@+id/displayName"
-            style="@style/TextView"
+            style="@style/TextViewGeneral"
             android:textColor="@color/black"
             android:textSize="17sp"
             android:typeface="serif" />
 
         <TextView
             android:id="@+id/dateTime"
-            style="@style/TextView"
+            style="@style/TextViewGeneral"
             android:textColor="@color/darkGray"
             android:textSize="13sp" />
 
         <TextView
             android:id="@+id/simCard"
-            style="@style/TextView"
+            style="@style/TextViewGeneral"
             android:textColor="@color/darkGray"
             android:textSize="12sp"
             android:typeface="monospace" />

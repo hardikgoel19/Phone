@@ -50,6 +50,8 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessageViewHolder> {
         //SET LAST MESSAGE
         holder.setLastMessage(groupedMessages);
 
+        //HANDLE ON CLICK
+        holder.handleOnClick(groupedMessages);
     }
 
     @Override
