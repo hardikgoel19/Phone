@@ -14,7 +14,7 @@ import xyz.phone.manager.R;
 import xyz.phone.manager.enums.CallType;
 import xyz.phone.manager.model.Call;
 import xyz.phone.manager.utils.Converter;
-import xyz.phone.manager.utils.DateUtil;
+import xyz.phone.manager.utils.DateTimeUtil;
 
 public class CallLogViewHolder extends RecyclerView.ViewHolder {
 
@@ -53,7 +53,7 @@ public class CallLogViewHolder extends RecyclerView.ViewHolder {
         if (timeInMillis == 0) {
             dateTime.setText("");
         } else {
-            String formattedDateTime = DateUtil.getFormattedDate(timeInMillis);
+            String formattedDateTime = DateTimeUtil.getFormattedDate(timeInMillis);
             dateTime.setText(formattedDateTime);
         }
     }

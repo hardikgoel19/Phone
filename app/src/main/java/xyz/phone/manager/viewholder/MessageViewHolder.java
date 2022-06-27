@@ -15,7 +15,7 @@ import xyz.phone.manager.ConversationActivity;
 import xyz.phone.manager.R;
 import xyz.phone.manager.model.Message;
 import xyz.phone.manager.utils.Converter;
-import xyz.phone.manager.utils.DateUtil;
+import xyz.phone.manager.utils.DateTimeUtil;
 
 public class MessageViewHolder extends RecyclerView.ViewHolder {
 
@@ -66,7 +66,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
         if (timeInMillis == 0L) {
             this.lastDateTime.setText(DEFAULT_LAST_DATE_TIME);
         } else {
-            String formattedDateTime = DateUtil.getFormattedDate(timeInMillis);
+            String formattedDateTime = DateTimeUtil.getFormattedDate(timeInMillis);
             this.lastDateTime.setText(formattedDateTime);
         }
     }
