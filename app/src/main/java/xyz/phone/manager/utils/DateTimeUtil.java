@@ -36,12 +36,9 @@ public class DateTimeUtil {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date(timeInMillis));
 
-        //NOW TIMESTAMP
-        Calendar nowCalendar = Calendar.getInstance();
-
         //DIFFERENCE
         DateTimeDifference difference = getDifference(
-                nowCalendar.getTimeInMillis(),
+                (new Date()).getTime(),
                 calendar.getTimeInMillis()
         );
 
@@ -93,10 +90,10 @@ public class DateTimeUtil {
 
     private static DateTimeDifference getDifference(long millisFrom, long millisTo) {
         long millis = (long) (millisFrom - millisTo);
-        long seconds = (millis / 1000L) % 60L;
-        long minutes = (millis / 60000L) % 60L;
-        long hours = (millis / 3600000L) % 24L;
-        long days = (millis / (1000 * 60 * 60 * 24)) % 365;
+        long seconds = (millis / 1000L);
+        long minutes = (millis / 60000L);
+        long hours = (millis / 3600000L);
+        long days = (millis / (1000 * 60 * 60 * 24));
         long years = (millis / (1000L * 60 * 60 * 24 * 365));
         return new DateTimeDifference(years, days, hours, minutes, seconds, millis);
     }
