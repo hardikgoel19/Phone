@@ -11,13 +11,13 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import xyz.phone.commons.model.Message;
+import xyz.phone.commons.utils.Comparator;
+import xyz.phone.commons.utils.GroupList;
 import xyz.phone.manager.R;
 import xyz.phone.manager.adapter.MessagesAdapter;
 import xyz.phone.manager.base.BaseFragment;
 import xyz.phone.manager.core.MessagesProvider;
-import xyz.phone.manager.model.Message;
-import xyz.phone.manager.utils.Comparator;
-import xyz.phone.manager.utils.GroupList;
 
 public class MessagesFragment extends BaseFragment {
 

@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import xyz.phone.commons.model.Message;
 import xyz.phone.manager.R;
-import xyz.phone.manager.model.Message;
 import xyz.phone.manager.viewholder.MessageViewHolder;
 
 public class MessagesAdapter extends RecyclerView.Adapter<MessageViewHolder> {

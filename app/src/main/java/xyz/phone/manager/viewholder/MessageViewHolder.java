@@ -1,6 +1,7 @@
 package xyz.phone.manager.viewholder;
 
 import android.content.Intent;
+
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -11,11 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import xyz.phone.commons.model.Message;
+import xyz.phone.commons.utils.Converter;
+import xyz.phone.commons.utils.DateTimeUtil;
 import xyz.phone.manager.ConversationActivity;
 import xyz.phone.manager.R;
-import xyz.phone.manager.model.Message;
-import xyz.phone.manager.utils.Converter;
-import xyz.phone.manager.utils.DateTimeUtil;
 
 public class MessageViewHolder extends RecyclerView.ViewHolder {
 
@@ -66,7 +67,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
         if (timeInMillis == 0L) {
             this.lastDateTime.setText(DEFAULT_LAST_DATE_TIME);
         } else {
-            String formattedDateTime = DateTimeUtil.getFormattedDate(timeInMillis);
+            String formattedDateTime = DateTimeUtil.getFormattedTimestamp(timeInMillis);
             this.lastDateTime.setText(formattedDateTime);
         }
     }

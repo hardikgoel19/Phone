@@ -7,11 +7,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import xyz.phone.commons.model.Message;
+import xyz.phone.commons.utils.Converter;
+import xyz.phone.commons.utils.DateTimeUtil;
 import xyz.phone.manager.R;
 import xyz.phone.manager.enums.MessageType;
-import xyz.phone.manager.model.Message;
-import xyz.phone.manager.utils.Converter;
-import xyz.phone.manager.utils.DateTimeUtil;
 
 public class ConversationViewHolder extends RecyclerView.ViewHolder {
 
@@ -50,7 +50,7 @@ public class ConversationViewHolder extends RecyclerView.ViewHolder {
         long dateTimeMillis = Converter.toLong(dateTime);
         if (dateTimeMillis == 0L) return;
 
-        String dateTimeFormatted = DateTimeUtil.getFormattedDate(dateTimeMillis);
+        String dateTimeFormatted = DateTimeUtil.getFormattedTimestamp(dateTimeMillis);
         if (dateTimeFormatted.isEmpty()) return;
 
         this.dateTime.setText(dateTimeFormatted);

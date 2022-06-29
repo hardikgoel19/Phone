@@ -8,11 +8,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import java.util.ArrayList;
 
+import xyz.phone.commons.model.Message;
+import xyz.phone.commons.utils.Converter;
 import xyz.phone.manager.enums.MessageType;
-import xyz.phone.manager.model.Message;
-import xyz.phone.manager.utils.Converter;
 import xyz.phone.manager.viewholder.ConversationViewHolder;
 
 public class ConversationsAdapter extends RecyclerView.Adapter<ConversationViewHolder> {

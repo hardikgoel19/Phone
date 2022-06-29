@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextViewGeneral">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/padding_general</item>
+        <item name="android:layout_margin">@dimen/margin_general</item>
+        <item name="android:lines">1</item>
+        <item name="android:text">@string/app_name</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+</resources>

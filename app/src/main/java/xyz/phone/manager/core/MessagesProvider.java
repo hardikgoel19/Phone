@@ -7,7 +7,8 @@ import android.provider.Telephony;
 import java.util.ArrayList;
 import java.util.List;
 
-import xyz.phone.manager.model.Message;
+import xyz.phone.commons.model.Message;
+
 
 public class MessagesProvider {
 

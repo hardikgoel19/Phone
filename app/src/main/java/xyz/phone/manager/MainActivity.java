@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity
 
         //GET SUPPORT ACTION BAR
         actionBar = getSupportActionBar();
+
     }
 
 

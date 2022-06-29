@@ -10,11 +10,9 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-import xyz.phone.manager.adapter.CallLogsAdapter;
+import xyz.phone.commons.model.Message;
 import xyz.phone.manager.adapter.ConversationsAdapter;
 import xyz.phone.manager.constants.Title;
-import xyz.phone.manager.core.CallLogsProvider;
-import xyz.phone.manager.model.Message;
 
 @SuppressWarnings("All")
 public class ConversationActivity extends AppCompatActivity {

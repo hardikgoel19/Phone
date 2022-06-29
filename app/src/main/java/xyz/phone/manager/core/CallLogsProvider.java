@@ -8,7 +8,7 @@ import android.provider.CallLog;
 import java.util.ArrayList;
 import java.util.List;
 
-import xyz.phone.manager.model.Call;
+import xyz.phone.commons.model.Call;
 
 public class CallLogsProvider {
 
