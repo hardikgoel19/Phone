@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import xyz.android.library.recyclerview.viewholders.HeaderViewHolder;
 import xyz.android.library.recyclerview.R;
@@ -21,10 +22,10 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderViewHolder> {
     private static final int VIEW_ITEM_HEAD = R.layout.item_head;
 
     private final List<String> category;
-    private final Map<String, List<Call>> map;
+    private final Map<String, Set<Call>> map;
     private final LayoutInflater inflater;
 
-    public HeaderAdapter(Context context, Map<String, List<Call>> map) {
+    public HeaderAdapter(Context context, Map<String, Set<Call>> map) {
         this.map = map;
         this.inflater = LayoutInflater.from(context);
 

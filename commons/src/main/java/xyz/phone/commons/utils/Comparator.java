@@ -2,11 +2,9 @@ package xyz.phone.commons.utils;
 
 import java.util.function.Function;
 
-import xyz.phone.commons.model.Message;
+public class Comparator<T> {
 
-public class Comparator {
-
-    public static java.util.Comparator<Message> byNumber(Function<Message, String> function) {
+    public java.util.Comparator<T> byNumber(Function<T, String> function) {
         return (obj1, obj2) -> {
             String value1 = function.apply(obj1);
             String value2 = function.apply(obj2);
@@ -17,7 +15,7 @@ public class Comparator {
         };
     }
 
-    public static java.util.Comparator<Message> byNumberDesc(Function<Message, String> function) {
+    public java.util.Comparator<T> byNumberDesc(Function<T, String> function) {
         return (obj1, obj2) -> {
             String value1 = function.apply(obj1);
             String value2 = function.apply(obj2);

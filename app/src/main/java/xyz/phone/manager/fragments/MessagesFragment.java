@@ -9,7 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import xyz.phone.commons.model.Message;
 import xyz.phone.commons.utils.Comparator;
@@ -17,17 +18,20 @@ import xyz.phone.commons.utils.GroupList;
 import xyz.phone.manager.R;
 import xyz.phone.manager.adapter.MessagesAdapter;
 import xyz.phone.manager.base.BaseFragment;
-import xyz.phone.manager.core.MessagesProvider;
+import xyz.phone.providers.MessagesProvider;
 
 public class MessagesFragment extends BaseFragment {
 
     private static final int FRAGMENT_LAYOUT = R.layout.fragment_messages;
 
+    //INIT OBJECTS
+    private final Comparator<Message> comparator = new Comparator<>();
+
     private GroupList<Message> groupList;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView recyclerView;
     private MessagesAdapter adapter;
-    private List<Message> messageList;
+    private Map<String, Set<Message>> map;
 
     public MessagesFragment() {
     }
@@ -61,18 +65,18 @@ public class MessagesFragment extends BaseFragment {
     public void doReload() {
         if (getContext() == null)
             return;
-        if (messageList == null || messageList.isEmpty())
-            messageList = MessagesProvider.getAll(getContext());
 
         //GROUP + SORT
-        List<List<Message>> message = groupList.groupBy(
-                messageList,
-                Message::getAddress,
-                Comparator.byNumberDesc(Message::getMessageDate)
-        );
+        if (map == null || map.isEmpty()) {
+            map = MessagesProvider.getAllGrouped(
+                    getContext(),
+                    Message::getAddress,
+                    comparator.byNumberDesc(Message::getMessageDate)
+            );
+        }
 
         if (adapter == null)
-            adapter = new MessagesAdapter(getContext(), message);
+            adapter = new MessagesAdapter(getContext(), map);
         if (recyclerView != null)
             recyclerView.setAdapter(adapter);
     }

@@ -8,7 +8,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import xyz.phone.commons.model.Message;
 import xyz.phone.manager.R;
@@ -18,11 +22,14 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessageViewHolder> {
 
     private static final int VEW_ITEM_MESSAGES = R.layout.item_message;
 
-    private final List<List<Message>> messages;
+    private final Map<String, Set<Message>> map;
+    private final List<String> headings;
     private final LayoutInflater inflater;
 
-    public MessagesAdapter(Context context, List<List<Message>> messages) {
-        this.messages = messages;
+    public MessagesAdapter(Context context, Map<String, Set<Message>> map) {
+        if (map == null) map = new HashMap<>();
+        headings = new ArrayList<>(map.keySet());
+        this.map = map;
         this.inflater = LayoutInflater.from(context);
     }
 
@@ -36,26 +43,21 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessageViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
         //CHECKS
-        if (messages == null || messages.get(position) == null) return;
+        if (map == null
+                || headings == null
+                || headings.get(position) == null
+                || map.get(headings.get(position)) == null) return;
 
         //GET MESSAGES GROUPED
-        List<Message> groupedMessages = messages.get(position);
+        String heading = headings.get(position);
+        Set<Message> groupedMessages = map.get(heading);
 
-        //SET DISPLAY NAME
-        holder.setDisplayName(groupedMessages);
-
-        //SET DATE TIME
-        holder.setLastDateTime(groupedMessages);
-
-        //SET LAST MESSAGE
-        holder.setLastMessage(groupedMessages);
-
-        //HANDLE ON CLICK
-        holder.handleOnClick(groupedMessages);
+        //POPULATE DATA
+        holder.populateData(heading, groupedMessages);
     }
 
     @Override
     public int getItemCount() {
-        return messages == null ? 0 : messages.size();
+        return headings == null ? 0 : headings.size();
     }
 }

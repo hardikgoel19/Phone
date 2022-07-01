@@ -9,9 +9,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
+import xyz.phone.commons.model.Call;
 import xyz.phone.commons.model.Message;
 import xyz.phone.commons.utils.Converter;
 import xyz.phone.commons.utils.DateTimeUtil;
@@ -37,26 +40,38 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
         this.lastMessage = itemView.findViewById(R.id.lastMessage);
     }
 
-    public void setDisplayName(List<Message> messages) {
-        if (this.displayName == null) return;
-        if (messages == null || messages.isEmpty()) return;
+    public void populateData(String heading, Set<Message> groupedMessages) {
+        List<Message> messages = new ArrayList<>(groupedMessages);
 
-        Message message = messages.get(messages.size() - 1);
-        String address = DEFAULT_DISPLAY_NAME;
-        if (!(message == null
-                || message.getAddress() == null
-                || message.getAddress().isEmpty()
-        ))
-            address = message.getAddress();
+        // DISPLAY NAME
+        setDisplayName(heading);
 
-        this.displayName.setText(address);
+        // LAST DATE TIME
+        setLastDateTime(messages);
+
+        // LAST MESSAGE
+        setLastMessage(messages);
+
+        // HANDLE ON CLICK
+        handleOnClick(messages);
     }
 
-    public void setLastDateTime(List<Message> messages) {
-        if (this.lastDateTime == null) return;
-        if (messages == null || messages.isEmpty()) return;
+    private void setDisplayName(String displayName) {
+        if (this.displayName == null) return;
 
-        Message message = messages.get(messages.size() - 1);
+        if (displayName == null || displayName.isEmpty())
+            displayName = DEFAULT_DISPLAY_NAME;
+
+        this.displayName.setText(displayName);
+    }
+
+    private void setLastDateTime(List<Message> groupedMessages) {
+        if (this.lastDateTime == null) return;
+
+        if (groupedMessages == null || groupedMessages.isEmpty()) return;
+
+        //ASSUMING MESSAGES ARE SORTED IN DESC ORDER
+        Message message = groupedMessages.get(0);
         long timeInMillis = 0L;
         if (!(message == null
                 || message.getMessageDate() == null
@@ -72,11 +87,12 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    public void setLastMessage(List<Message> messages) {
+    private void setLastMessage(List<Message> groupedMessages) {
         if (this.lastMessage == null) return;
-        if (messages == null || messages.isEmpty()) return;
+        if (groupedMessages == null || groupedMessages.isEmpty()) return;
 
-        Message message = messages.get(messages.size() - 1);
+        //ASSUMING MESSAGES ARE SORTED IN DESC ORDER
+        Message message = groupedMessages.get(0);
         String lastMessageText = DEFAULT_LAST_MESSAGE;
         if (!(message == null
                 || message.getMessageDate() == null
@@ -87,7 +103,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
         this.lastMessage.setText(lastMessageText);
     }
 
-    public void handleOnClick(List<Message> groupedMessages) {
+    private void handleOnClick(List<Message> groupedMessages) {
         if (this.mainLayout == null || this.mainLayout.getContext() == null) return;
 
         ArrayList<Message> list = new ArrayList<>(groupedMessages);

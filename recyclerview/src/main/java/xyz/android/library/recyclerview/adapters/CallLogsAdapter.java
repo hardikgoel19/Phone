@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import xyz.android.library.recyclerview.viewholders.CallLogViewHolder;
 import xyz.android.library.recyclerview.R;
@@ -20,8 +22,8 @@ public class CallLogsAdapter extends RecyclerView.Adapter<CallLogViewHolder> {
     private final List<Call> calls;
     private final LayoutInflater inflater;
 
-    public CallLogsAdapter(Context context, List<Call> calls) {
-        this.calls = calls;
+    public CallLogsAdapter(Context context, Set<Call> calls) {
+        this.calls = new ArrayList<>(calls);
         this.inflater = LayoutInflater.from(context);
     }
 

@@ -33,6 +33,20 @@ public class CallLogViewHolder extends RecyclerView.ViewHolder {
         this.callTypeIcon = itemView.findViewById(R.id.callTypeIcon);
     }
 
+    public void populateData(Call call) {
+        // DISPLAY NAME
+        setDisplayName(call);
+
+        // DATE TIME
+        setDateTime(call);
+
+        // SIM CARD INFO
+        setSimCard(call);
+
+        // CALL TYPE ICON
+        setCallTypeIcon(call);
+    }
+
     private void setDisplayName(@NonNull Call call) {
         if (this.displayName == null) return;
 
@@ -78,19 +92,5 @@ public class CallLogViewHolder extends RecyclerView.ViewHolder {
         if (imageDrawable != null) {
             this.callTypeIcon.setImageDrawable(imageDrawable);
         }
-    }
-
-    public void populateData(Call call) {
-        // DISPLAY NAME
-        setDisplayName(call);
-
-        // DATE TIME
-        setDateTime(call);
-
-        // SIM CARD INFO
-        setSimCard(call);
-
-        // CALL TYPE ICON
-        setCallTypeIcon(call);
     }
 }

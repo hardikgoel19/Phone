@@ -1,19 +1,29 @@
-package xyz.phone.manager.core;
+package xyz.phone.providers;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.provider.BaseColumns;
 import android.provider.CallLog;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.function.Function;
 
 import xyz.phone.commons.model.Call;
 
 public class CallLogsProvider {
 
-    public static List<Call> getAll(Context context) {
-        List<Call> calls = new ArrayList<>();
+    private static final String DEFAULT_KEY = "Unknown";
+
+    public static Map<String, Set<Call>> getAllGrouped(
+            Context context,
+            Function<Call, String> groupingFunction,
+            Comparator<Call> comparator
+    ) {
+        Map<String, Set<Call>> map = new HashMap<>();
 
         //MAKE CURSOR
         Cursor cursor = context.getContentResolver().query(
@@ -54,11 +64,29 @@ public class CallLogsProvider {
             call.setName(callName);
             call.setPhoneAccountId(phoneAccountId);
 
-            //ACCUMULATE CALL
-            calls.add(call);
+            putInMap(groupingFunction.apply(call), call, map, comparator);
         }
         cursor.close();
-        return calls;
+        return map;
+    }
+
+    private static void putInMap(
+            String key,
+            Call call,
+            Map<String, Set<Call>> map,
+            Comparator<Call> comparator
+    ) {
+        if (key == null || key.isEmpty()) key = DEFAULT_KEY;
+
+        Set<Call> temp;
+        if (map.containsKey(key)) {
+            temp = map.get(key);
+            if (temp == null) temp = new TreeSet<>(comparator);
+        } else {
+            temp = new TreeSet<>(comparator);
+        }
+        temp.add(call);
+        map.put(key, temp);
     }
 
 }

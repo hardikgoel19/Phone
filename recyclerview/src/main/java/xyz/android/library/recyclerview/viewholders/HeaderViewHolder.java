@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.Set;
 
 import xyz.android.library.recyclerview.R;
 import xyz.android.library.recyclerview.adapters.CallLogsAdapter;
@@ -37,7 +38,7 @@ public class HeaderViewHolder extends RecyclerView.ViewHolder {
         recyclerView = itemView.findViewById(R.id.recyclerView);
     }
 
-    public void populateData(String head, List<Call> calls) {
+    public void populateData(String head, Set<Call> calls) {
         //HANDLE COLLAPSE ACTION
         handleCollapseAction();
 
@@ -51,7 +52,7 @@ public class HeaderViewHolder extends RecyclerView.ViewHolder {
         populateRecyclerView(calls);
     }
 
-    private void populateRecyclerView(List<Call> calls) {
+    private void populateRecyclerView(Set<Call> calls) {
         if (this.recyclerView == null) return;
 
         //CONTEXT
